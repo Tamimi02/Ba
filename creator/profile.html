@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator - Profile</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .top-nav { background: #fff; border-bottom: 2px solid #ddd; padding: 15px 30px; display: flex; gap: 30px; }
+        .top-nav a { color: #333; text-decoration: none; font-weight: bold; padding: 8px 16px; border: 1px solid #ddd; }
+        .container { display: flex; height: calc(100vh - 60px); }
+        .sidebar { width: 250px; background: #fff; border-right: 2px solid #ddd; padding: 20px; overflow-y: auto; }
+        .sidebar h3 { margin: 20px 0 10px 0; font-size: 14px; color: #666; text-transform: uppercase; }
+        .sidebar ul { list-style: none; }
+        .sidebar a { color: #333; text-decoration: none; display: block; padding: 8px 12px; border-left: 3px solid transparent; }
+        .sidebar a.active { background: #e8e8e8; border-left-color: #333; font-weight: bold; }
+        .main-content { flex: 1; padding: 30px; overflow-y: auto; }
+        .page-header h1 { font-size: 28px; margin-bottom: 30px; }
+        .section { background: #fff; border: 2px solid #ddd; padding: 20px; margin-bottom: 20px; }
+        .section h2 { margin-bottom: 15px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; }
+        .form-group textarea { min-height: 100px; }
+        .social-links { display: flex; gap: 10px; margin-top: 10px; }
+        .social-links input { flex: 1; }
+        .btn { padding: 10px 20px; background: #333; color: #fff; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="../shared/campaigns-main.html">Campaigns</a>
+        <a href="../shared/marketplace.html">Marketplace</a>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Dashboard</h3>
+            <ul>
+                <li><a href="dashboard.html">Overview</a></li>
+                <li><a href="campaigns-overview.html">Campaigns</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+                <li><a href="earnings.html">Earnings</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="messages.html">Messages</a></li>
+            </ul>
+            <h3>Campaigns</h3>
+            <ul>
+                <li><a href="campaigns-overview.html">My Campaigns</a></li>
+                <li><a href="search-campaigns.html">Search Campaigns</a></li>
+                <li><a href="invitations.html">Invitations</a></li>
+            </ul>
+            <h3>Settings</h3>
+            <ul>
+                <li><a href="personal-info.html">Personal Information</a></li>
+                <li><a href="notifications.html">Notifications</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="account-security.html">Account Security</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="page-header">
+                <h1>Creator Profile</h1>
+            </div>
+            <div class="section">
+                <h2>Basic Information</h2>
+                <div class="form-group">
+                    <label>Display Name</label>
+                    <input type="text" value="[Creator Name]">
+                </div>
+                <div class="form-group">
+                    <label>Bio</label>
+                    <textarea>[Creator bio and description...]</textarea>
+                </div>
+                <div class="form-group">
+                    <label>Categories</label>
+                    <input type="text" value="[Fashion, Lifestyle, Beauty]">
+                </div>
+            </div>
+            <div class="section">
+                <h2>Social Media Accounts</h2>
+                <div class="form-group">
+                    <label>Instagram</label>
+                    <div class="social-links">
+                        <input type="text" value="[@username]" placeholder="Username">
+                        <input type="number" value="[50,000]" placeholder="Followers">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>TikTok</label>
+                    <div class="social-links">
+                        <input type="text" value="[@username]" placeholder="Username">
+                        <input type="number" value="[120,000]" placeholder="Followers">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>YouTube</label>
+                    <div class="social-links">
+                        <input type="text" value="[@username]" placeholder="Channel">
+                        <input type="number" value="[25,000]" placeholder="Subscribers">
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Portfolio</h2>
+                <p>[Upload and showcase your best content]</p>
+                <p>[Content sample 1 placeholder]</p>
+                <p>[Content sample 2 placeholder]</p>
+                <p>[Content sample 3 placeholder]</p>
+                <button class="btn">Upload Content</button>
+            </div>
+            <div>
+                <button class="btn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

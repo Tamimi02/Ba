@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand - Review & Publish Campaign</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .top-nav { background: #fff; border-bottom: 2px solid #ddd; padding: 15px 30px; display: flex; gap: 30px; }
+        .top-nav a { color: #333; text-decoration: none; font-weight: bold; padding: 8px 16px; border: 1px solid #ddd; }
+        .container { display: flex; height: calc(100vh - 60px); }
+        .sidebar { width: 250px; background: #fff; border-right: 2px solid #ddd; padding: 20px; overflow-y: auto; }
+        .sidebar h3 { margin: 20px 0 10px 0; font-size: 14px; color: #666; text-transform: uppercase; }
+        .sidebar ul { list-style: none; }
+        .sidebar a { color: #333; text-decoration: none; display: block; padding: 8px 12px; border-left: 3px solid transparent; }
+        .sidebar a.active { background: #e8e8e8; border-left-color: #333; font-weight: bold; }
+        .main-content { flex: 1; padding: 30px; overflow-y: auto; }
+        .page-header h1 { font-size: 28px; margin-bottom: 30px; }
+        .section { background: #fff; border: 2px solid #ddd; padding: 20px; margin-bottom: 20px; }
+        .section h2 { margin-bottom: 15px; }
+        .review-item { padding: 15px 0; border-bottom: 1px solid #ddd; }
+        .review-item:last-child { border-bottom: none; }
+        .review-item strong { display: block; margin-bottom: 5px; }
+        .warning-box { background: #fff3cd; border: 2px solid #ffc107; padding: 15px; margin-bottom: 20px; }
+        .btn { padding: 10px 20px; background: #333; color: #fff; border: none; cursor: pointer; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="../shared/campaigns-main.html">Campaigns</a>
+        <a href="../shared/marketplace.html">Marketplace</a>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Dashboard</h3>
+            <ul>
+                <li><a href="dashboard.html">Overview</a></li>
+                <li><a href="campaigns-list.html">Campaigns</a></li>
+                <li><a href="saved-lists.html">Saved Lists</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="wallet.html">Wallet</a></li>
+                <li><a href="messages.html">Messages</a></li>
+            </ul>
+            <h3>Campaigns</h3>
+            <ul>
+                <li><a href="create-campaign.html">Create Campaign</a></li>
+                <li><a href="campaign-details.html">Campaign Details</a></li>
+                <li><a href="campaign-review.html" class="active">Review & Publish</a></li>
+            </ul>
+            <h3>Settings</h3>
+            <ul>
+                <li><a href="brand-profile.html">Brand Profile</a></li>
+                <li><a href="team-members.html">Team Members</a></li>
+                <li><a href="notifications.html">Notifications</a></li>
+                <li><a href="billing-subscription.html">Billing & Subscription</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="page-header">
+                <h1>Review & Publish Campaign</h1>
+            </div>
+            <div class="warning-box">
+                <strong>Review Before Publishing</strong>
+                <p>Please review all campaign details before publishing. Once published, some details cannot be changed.</p>
+            </div>
+            <div class="section">
+                <h2>Campaign Summary</h2>
+                <div class="review-item">
+                    <strong>Campaign Name</strong>
+                    <p>[Summer Launch 2024]</p>
+                </div>
+                <div class="review-item">
+                    <strong>Campaign Type</strong>
+                    <p>[Product Review]</p>
+                </div>
+                <div class="review-item">
+                    <strong>Duration</strong>
+                    <p>[Start Date] to [End Date]</p>
+                </div>
+                <div class="review-item">
+                    <strong>Total Budget</strong>
+                    <p>[$XX,XXX]</p>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Creator Requirements</h2>
+                <div class="review-item">
+                    <strong>Minimum Followers</strong>
+                    <p>[10,000]</p>
+                </div>
+                <div class="review-item">
+                    <strong>Category</strong>
+                    <p>[Fashion]</p>
+                </div>
+                <div class="review-item">
+                    <strong>Location</strong>
+                    <p>[United States]</p>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Campaign Description</h2>
+                <p>[Full campaign description and requirements displayed here...]</p>
+            </div>
+            <div>
+                <button class="btn" style="background: #ddd; color: #333;">Back to Edit</button>
+                <button class="btn" style="background: #5cb85c;">Publish Campaign</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .top-nav { background: #fff; border-bottom: 2px solid #ddd; padding: 15px 30px; display: flex; gap: 30px; justify-content: space-between; align-items: center; }
+        .top-nav .links { display: flex; gap: 30px; }
+        .top-nav a { color: #333; text-decoration: none; font-weight: bold; padding: 8px 16px; border: 1px solid #ddd; }
+        .top-nav a.active { background: #333; color: #fff; }
+        .main-content { max-width: 1200px; margin: 0 auto; padding: 30px; }
+        .page-header { text-align: center; margin-bottom: 40px; }
+        .page-header h1 { font-size: 36px; margin-bottom: 10px; }
+        .page-header p { color: #666; font-size: 18px; }
+        .search-section { background: #fff; border: 2px solid #ddd; padding: 30px; margin-bottom: 30px; }
+        .search-bar { display: flex; gap: 10px; margin-bottom: 20px; }
+        .search-bar input { flex: 1; padding: 12px; border: 1px solid #ddd; font-size: 16px; }
+        .filters { display: flex; gap: 10px; flex-wrap: wrap; }
+        .filters select, .filters button { padding: 10px 15px; border: 1px solid #ddd; background: #fff; cursor: pointer; }
+        .marketplace-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .item-card { background: #fff; border: 2px solid #ddd; padding: 20px; }
+        .item-card h3 { margin-bottom: 10px; font-size: 18px; }
+        .item-card .type-badge { display: inline-block; padding: 5px 10px; background: #5cb85c; color: #fff; font-size: 12px; margin-bottom: 10px; }
+        .item-card p { color: #666; margin-bottom: 8px; font-size: 14px; }
+        .item-card .stats { display: flex; gap: 15px; margin: 15px 0; font-size: 13px; color: #666; }
+        .btn { padding: 10px 20px; background: #333; color: #fff; border: none; cursor: pointer; width: 100%; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <div class="links">
+            <a href="campaigns-main.html">Campaigns</a>
+            <a href="marketplace.html" class="active">Marketplace</a>
+        </div>
+        <div>
+            <a href="../agency/dashboard.html">Agency</a>
+            <a href="../brand/dashboard.html">Brand</a>
+            <a href="../creator/dashboard.html">Creator</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h1>Marketplace</h1>
+            <p>Discover creators and campaign opportunities</p>
+        </div>
+
+        <div class="search-section">
+            <div class="search-bar">
+                <input type="text" placeholder="Search for creators, campaigns, or brands...">
+            </div>
+            <div class="filters">
+                <select>
+                    <option>[All Types]</option>
+                    <option>[Creators]</option>
+                    <option>[Campaigns]</option>
+                    <option>[Brands]</option>
+                </select>
+                <select>
+                    <option>[All Categories]</option>
+                    <option>[Fashion]</option>
+                    <option>[Technology]</option>
+                    <option>[Lifestyle]</option>
+                    <option>[Food & Beverage]</option>
+                    <option>[Beauty]</option>
+                </select>
+                <select>
+                    <option>[All Platforms]</option>
+                    <option>[Instagram]</option>
+                    <option>[TikTok]</option>
+                    <option>[YouTube]</option>
+                </select>
+                <select>
+                    <option>[Follower Count]</option>
+                    <option>[10K - 50K]</option>
+                    <option>[50K - 100K]</option>
+                    <option>[100K - 500K]</option>
+                    <option>[500K+]</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="marketplace-grid">
+            <div class="item-card">
+                <span class="type-badge">Creator</span>
+                <h3>[Creator Name]</h3>
+                <p><strong>Category:</strong> Fashion & Lifestyle</p>
+                <p><strong>Location:</strong> United States</p>
+                <div class="stats">
+                    <span>Instagram: 125K</span>
+                    <span>Engagement: 8.5%</span>
+                </div>
+                <p>[Creator bio and specialty description...]</p>
+                <button class="btn">View Profile</button>
+            </div>
+
+            <div class="item-card">
+                <span class="type-badge" style="background: #f0ad4e;">Campaign</span>
+                <h3>[Fashion Week Campaign]</h3>
+                <p><strong>Brand:</strong> [Brand Name]</p>
+                <p><strong>Compensation:</strong> $XXX - $XXX</p>
+                <div class="stats">
+                    <span>Category: Fashion</span>
+                    <span>Spots: 5/10</span>
+                </div>
+                <p>[Campaign description and requirements...]</p>
+                <button class="btn">View Details</button>
+            </div>
+
+            <div class="item-card">
+                <span class="type-badge">Creator</span>
+                <h3>[Tech Reviewer]</h3>
+                <p><strong>Category:</strong> Technology</p>
+                <p><strong>Location:</strong> Canada</p>
+                <div class="stats">
+                    <span>YouTube: 250K</span>
+                    <span>Engagement: 12.3%</span>
+                </div>
+                <p>[Creator bio and specialty description...]</p>
+                <button class="btn">View Profile</button>
+            </div>
+
+            <div class="item-card">
+                <span class="type-badge" style="background: #f0ad4e;">Campaign</span>
+                <h3>[Product Launch Campaign]</h3>
+                <p><strong>Brand:</strong> [Brand Name]</p>
+                <p><strong>Compensation:</strong> $XXX - $XXX</p>
+                <div class="stats">
+                    <span>Category: Tech</span>
+                    <span>Spots: 3/8</span>
+                </div>
+                <p>[Campaign description and requirements...]</p>
+                <button class="btn">View Details</button>
+            </div>
+
+            <div class="item-card">
+                <span class="type-badge">Creator</span>
+                <h3>[Beauty Influencer]</h3>
+                <p><strong>Category:</strong> Beauty & Wellness</p>
+                <p><strong>Location:</strong> United Kingdom</p>
+                <div class="stats">
+                    <span>Instagram: 85K</span>
+                    <span>Engagement: 9.2%</span>
+                </div>
+                <p>[Creator bio and specialty description...]</p>
+                <button class="btn">View Profile</button>
+            </div>
+
+            <div class="item-card">
+                <span class="type-badge" style="background: #f0ad4e;">Campaign</span>
+                <h3>[Sustainable Living Series]</h3>
+                <p><strong>Brand:</strong> [Brand Name]</p>
+                <p><strong>Compensation:</strong> $XXX - $XXX</p>
+                <div class="stats">
+                    <span>Category: Lifestyle</span>
+                    <span>Spots: 8/15</span>
+                </div>
+                <p>[Campaign description and requirements...]</p>
+                <button class="btn">View Details</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator - Account Security</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .top-nav { background: #fff; border-bottom: 2px solid #ddd; padding: 15px 30px; display: flex; gap: 30px; }
+        .top-nav a { color: #333; text-decoration: none; font-weight: bold; padding: 8px 16px; border: 1px solid #ddd; }
+        .container { display: flex; height: calc(100vh - 60px); }
+        .sidebar { width: 250px; background: #fff; border-right: 2px solid #ddd; padding: 20px; overflow-y: auto; }
+        .sidebar h3 { margin: 20px 0 10px 0; font-size: 14px; color: #666; text-transform: uppercase; }
+        .sidebar ul { list-style: none; }
+        .sidebar a { color: #333; text-decoration: none; display: block; padding: 8px 12px; border-left: 3px solid transparent; }
+        .sidebar a.active { background: #e8e8e8; border-left-color: #333; font-weight: bold; }
+        .main-content { flex: 1; padding: 30px; overflow-y: auto; }
+        .page-header h1 { font-size: 28px; margin-bottom: 30px; }
+        .section { background: #fff; border: 2px solid #ddd; padding: 20px; margin-bottom: 20px; }
+        .section h2 { margin-bottom: 15px; }
+        .setting-item { padding: 15px 0; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; }
+        .setting-item:last-child { border-bottom: none; }
+        .setting-item h3 { margin-bottom: 5px; }
+        .setting-item p { color: #666; font-size: 14px; }
+        .btn { padding: 10px 20px; background: #333; color: #fff; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="../shared/campaigns-main.html">Campaigns</a>
+        <a href="../shared/marketplace.html">Marketplace</a>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Dashboard</h3>
+            <ul>
+                <li><a href="dashboard.html">Overview</a></li>
+                <li><a href="campaigns-overview.html">Campaigns</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="earnings.html">Earnings</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="messages.html">Messages</a></li>
+            </ul>
+            <h3>Campaigns</h3>
+            <ul>
+                <li><a href="campaigns-overview.html">My Campaigns</a></li>
+                <li><a href="search-campaigns.html">Search Campaigns</a></li>
+                <li><a href="invitations.html">Invitations</a></li>
+            </ul>
+            <h3>Settings</h3>
+            <ul>
+                <li><a href="personal-info.html">Personal Information</a></li>
+                <li><a href="notifications.html">Notifications</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="account-security.html" class="active">Account Security</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="page-header">
+                <h1>Account Security</h1>
+            </div>
+            <div class="section">
+                <h2>Login & Password</h2>
+                <div class="setting-item">
+                    <div>
+                        <h3>Password</h3>
+                        <p>Last changed: [Date]</p>
+                    </div>
+                    <button class="btn">Change Password</button>
+                </div>
+                <div class="setting-item">
+                    <div>
+                        <h3>Two-Factor Authentication</h3>
+                        <p>Add an extra layer of security to your account</p>
+                    </div>
+                    <button class="btn" style="background: #5cb85c;">Enable</button>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Active Sessions</h2>
+                <div class="setting-item">
+                    <div>
+                        <h3>Current Session</h3>
+                        <p>Windows PC - [Location] - [Last active: Now]</p>
+                    </div>
+                    <span>[Active]</span>
+                </div>
+                <div class="setting-item">
+                    <div>
+                        <h3>Mobile Device</h3>
+                        <p>iPhone - [Location] - [Last active: 2 hours ago]</p>
+                    </div>
+                    <button class="btn" style="background: #d9534f; font-size: 12px; padding: 5px 10px;">Logout</button>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Login History</h2>
+                <p>[Date/Time] - [Device] - [Location] - [Success]</p>
+                <p>[Date/Time] - [Device] - [Location] - [Success]</p>
+                <p>[Date/Time] - [Device] - [Location] - [Success]</p>
+            </div>
+            <div class="section">
+                <h2>Danger Zone</h2>
+                <div class="setting-item">
+                    <div>
+                        <h3>Delete Account</h3>
+                        <p>Permanently delete your account and all data</p>
+                    </div>
+                    <button class="btn" style="background: #d9534f;">Delete Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

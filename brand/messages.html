@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand - Messages</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .top-nav { background: #fff; border-bottom: 2px solid #ddd; padding: 15px 30px; display: flex; gap: 30px; }
+        .top-nav a { color: #333; text-decoration: none; font-weight: bold; padding: 8px 16px; border: 1px solid #ddd; }
+        .container { display: flex; height: calc(100vh - 60px); }
+        .sidebar { width: 250px; background: #fff; border-right: 2px solid #ddd; padding: 20px; overflow-y: auto; }
+        .sidebar h3 { margin: 20px 0 10px 0; font-size: 14px; color: #666; text-transform: uppercase; }
+        .sidebar ul { list-style: none; }
+        .sidebar a { color: #333; text-decoration: none; display: block; padding: 8px 12px; border-left: 3px solid transparent; }
+        .sidebar a.active { background: #e8e8e8; border-left-color: #333; font-weight: bold; }
+        .main-content { flex: 1; padding: 0; overflow: hidden; display: flex; }
+        .message-list { width: 350px; background: #fff; border-right: 2px solid #ddd; overflow-y: auto; }
+        .message-item { padding: 15px; border-bottom: 1px solid #ddd; cursor: pointer; }
+        .message-item:hover { background: #f5f5f5; }
+        .message-item.active { background: #e8e8e8; }
+        .message-item h4 { margin-bottom: 5px; }
+        .message-item p { color: #666; font-size: 14px; }
+        .message-thread { flex: 1; display: flex; flex-direction: column; background: #fff; }
+        .thread-header { padding: 20px; border-bottom: 2px solid #ddd; }
+        .thread-content { flex: 1; padding: 20px; overflow-y: auto; }
+        .message-bubble { margin-bottom: 20px; padding: 15px; background: #f5f5f5; border-radius: 8px; max-width: 70%; }
+        .message-bubble.sent { background: #333; color: #fff; margin-left: auto; }
+        .message-input { padding: 20px; border-top: 2px solid #ddd; }
+        .message-input input { width: 100%; padding: 10px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="../shared/campaigns-main.html">Campaigns</a>
+        <a href="../shared/marketplace.html">Marketplace</a>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Dashboard</h3>
+            <ul>
+                <li><a href="dashboard.html">Overview</a></li>
+                <li><a href="campaigns-list.html">Campaigns</a></li>
+                <li><a href="saved-lists.html">Saved Lists</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="wallet.html">Wallet</a></li>
+                <li><a href="messages.html" class="active">Messages</a></li>
+            </ul>
+            <h3>Campaigns</h3>
+            <ul>
+                <li><a href="create-campaign.html">Create Campaign</a></li>
+                <li><a href="campaign-details.html">Campaign Details</a></li>
+                <li><a href="campaign-review.html">Review & Publish</a></li>
+            </ul>
+            <h3>Settings</h3>
+            <ul>
+                <li><a href="brand-profile.html">Brand Profile</a></li>
+                <li><a href="team-members.html">Team Members</a></li>
+                <li><a href="notifications.html">Notifications</a></li>
+                <li><a href="billing-subscription.html">Billing & Subscription</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="message-list">
+                <div class="message-item active">
+                    <h4>[Creator Name 1]</h4>
+                    <p>[Last message preview...]</p>
+                    <small>[2 hours ago]</small>
+                </div>
+                <div class="message-item">
+                    <h4>[Creator Name 2]</h4>
+                    <p>[Last message preview...]</p>
+                    <small>[1 day ago]</small>
+                </div>
+                <div class="message-item">
+                    <h4>[Creator Name 3]</h4>
+                    <p>[Last message preview...]</p>
+                    <small>[3 days ago]</small>
+                </div>
+            </div>
+            <div class="message-thread">
+                <div class="thread-header">
+                    <h2>[Creator Name 1]</h2>
+                    <p>[Campaign: Summer Launch]</p>
+                </div>
+                <div class="thread-content">
+                    <div class="message-bubble">
+                        <p>[Message from creator...]</p>
+                        <small>[Time]</small>
+                    </div>
+                    <div class="message-bubble sent">
+                        <p>[Your reply...]</p>
+                        <small>[Time]</small>
+                    </div>
+                    <div class="message-bubble">
+                        <p>[Another message from creator...]</p>
+                        <small>[Time]</small>
+                    </div>
+                </div>
+                <div class="message-input">
+                    <input type="text" placeholder="Type your message...">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

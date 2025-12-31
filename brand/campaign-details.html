@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand - Campaign Details</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .top-nav { background: #fff; border-bottom: 2px solid #ddd; padding: 15px 30px; display: flex; gap: 30px; }
+        .top-nav a { color: #333; text-decoration: none; font-weight: bold; padding: 8px 16px; border: 1px solid #ddd; }
+        .container { display: flex; height: calc(100vh - 60px); }
+        .sidebar { width: 250px; background: #fff; border-right: 2px solid #ddd; padding: 20px; overflow-y: auto; }
+        .sidebar h3 { margin: 20px 0 10px 0; font-size: 14px; color: #666; text-transform: uppercase; }
+        .sidebar ul { list-style: none; }
+        .sidebar a { color: #333; text-decoration: none; display: block; padding: 8px 12px; border-left: 3px solid transparent; }
+        .sidebar a.active { background: #e8e8e8; border-left-color: #333; font-weight: bold; }
+        .main-content { flex: 1; padding: 30px; overflow-y: auto; }
+        .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .page-header h1 { font-size: 28px; }
+        .status-badge { padding: 5px 15px; background: #5cb85c; color: #fff; border-radius: 4px; }
+        .section { background: #fff; border: 2px solid #ddd; padding: 20px; margin-bottom: 20px; }
+        .section h2 { margin-bottom: 15px; }
+        .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #ddd; }
+        .info-row:last-child { border-bottom: none; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #f5f5f5; font-weight: bold; }
+        .btn { padding: 10px 20px; background: #333; color: #fff; border: none; cursor: pointer; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="../shared/campaigns-main.html">Campaigns</a>
+        <a href="../shared/marketplace.html">Marketplace</a>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Dashboard</h3>
+            <ul>
+                <li><a href="dashboard.html">Overview</a></li>
+                <li><a href="campaigns-list.html">Campaigns</a></li>
+                <li><a href="saved-lists.html">Saved Lists</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="wallet.html">Wallet</a></li>
+                <li><a href="messages.html">Messages</a></li>
+            </ul>
+            <h3>Campaigns</h3>
+            <ul>
+                <li><a href="create-campaign.html">Create Campaign</a></li>
+                <li><a href="campaign-details.html" class="active">Campaign Details</a></li>
+                <li><a href="campaign-review.html">Review & Publish</a></li>
+            </ul>
+            <h3>Settings</h3>
+            <ul>
+                <li><a href="brand-profile.html">Brand Profile</a></li>
+                <li><a href="team-members.html">Team Members</a></li>
+                <li><a href="notifications.html">Notifications</a></li>
+                <li><a href="billing-subscription.html">Billing & Subscription</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="page-header">
+                <h1>[Campaign Name]</h1>
+                <span class="status-badge">[Active]</span>
+            </div>
+            <div class="section">
+                <h2>Campaign Information</h2>
+                <div class="info-row">
+                    <strong>Campaign Type:</strong>
+                    <span>[Product Review]</span>
+                </div>
+                <div class="info-row">
+                    <strong>Duration:</strong>
+                    <span>[Start Date] - [End Date]</span>
+                </div>
+                <div class="info-row">
+                    <strong>Total Budget:</strong>
+                    <span>[$XX,XXX]</span>
+                </div>
+                <div class="info-row">
+                    <strong>Spent:</strong>
+                    <span>[$X,XXX]</span>
+                </div>
+                <div class="info-row">
+                    <strong>Description:</strong>
+                    <span>[Campaign description and goals...]</span>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Participating Creators</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Creator Name</th>
+                            <th>Followers</th>
+                            <th>Status</th>
+                            <th>Content Delivered</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>[Creator 1]</td>
+                            <td>[50K]</td>
+                            <td>[Active]</td>
+                            <td>[3/5]</td>
+                            <td>[View]</td>
+                        </tr>
+                        <tr>
+                            <td>[Creator 2]</td>
+                            <td>[120K]</td>
+                            <td>[Active]</td>
+                            <td>[2/3]</td>
+                            <td>[View]</td>
+                        </tr>
+                        <tr>
+                            <td>[Creator 3]</td>
+                            <td>[80K]</td>
+                            <td>[Completed]</td>
+                            <td>[4/4]</td>
+                            <td>[View]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <button class="btn">Edit Campaign</button>
+                <button class="btn" style="background: #d9534f;">Pause Campaign</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
