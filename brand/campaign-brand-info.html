@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand - Campaign Brand Info</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .top-nav { background: #fff; border-bottom: 2px solid #ddd; padding: 15px 30px; display: flex; gap: 30px; }
+        .top-nav a { color: #333; text-decoration: none; font-weight: bold; padding: 8px 16px; border: 1px solid #ddd; }
+        .container { display: flex; height: calc(100vh - 60px); }
+        .sidebar { width: 250px; background: #fff; border-right: 2px solid #ddd; padding: 20px; overflow-y: auto; }
+        .sidebar h3 { margin: 20px 0 10px 0; font-size: 14px; color: #666; text-transform: uppercase; }
+        .sidebar ul { list-style: none; }
+        .sidebar a { color: #333; text-decoration: none; display: block; padding: 8px 12px; border-left: 3px solid transparent; }
+        .sidebar a.active { background: #e8e8e8; border-left-color: #333; font-weight: bold; }
+        .main-content { flex: 1; padding: 30px; overflow-y: auto; }
+        .page-header { margin-bottom: 30px; }
+        .page-header h1 { font-size: 28px; margin-bottom: 10px; }
+        .page-header p { color: #666; }
+
+        .brand-hero {
+            background: #fff;
+            border: 2px solid #ddd;
+            padding: 30px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        .brand-logo {
+            width: 120px;
+            height: 120px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+            flex-shrink: 0;
+        }
+        .brand-header-info { flex: 1; }
+        .brand-header-info h2 { font-size: 28px; margin-bottom: 10px; }
+        .brand-header-info .tagline { color: #666; font-size: 16px; margin-bottom: 15px; }
+        .brand-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; }
+        .brand-tag {
+            padding: 6px 14px;
+            background: #f0f0f0;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #555;
+        }
+        .brand-tag.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+        }
+        .brand-stats-row {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .brand-stat {
+            text-align: center;
+        }
+        .brand-stat .value { font-size: 24px; font-weight: bold; color: #333; }
+        .brand-stat .label { font-size: 12px; color: #666; text-transform: uppercase; }
+
+        .section { background: #fff; border: 2px solid #ddd; padding: 25px; margin-bottom: 20px; }
+        .section h2 { margin-bottom: 20px; font-size: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .info-item {
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .info-item label {
+            display: block;
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .info-item .value {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+        }
+        .social-link:hover { background: #e8e8e8; }
+        .social-link .platform { font-weight: bold; }
+        .social-link .handle { color: #666; }
+
+        .guidelines-list {
+            list-style: none;
+        }
+        .guidelines-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .guidelines-list li:last-child { border-bottom: none; }
+        .guidelines-list .icon {
+            width: 24px;
+            height: 24px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .guidelines-list .icon.warning {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .color-swatch {
+            text-align: center;
+        }
+        .color-swatch .swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #ddd;
+        }
+        .color-swatch .name { font-size: 12px; color: #666; }
+        .color-swatch .hex { font-size: 11px; color: #999; }
+
+        .assets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        .asset-item {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .asset-item .preview {
+            width: 100%;
+            height: 80px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 12px;
+        }
+        .asset-item .name { font-size: 13px; color: #333; margin-bottom: 5px; }
+        .asset-item .download {
+            font-size: 12px;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        .btn:hover { background: #555; }
+        .btn-outline {
+            background: #fff;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="../shared/campaigns-main.html">Campaigns</a>
+        <a href="../shared/marketplace.html">Marketplace</a>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Dashboard</h3>
+            <ul>
+                <li><a href="dashboard.html">Overview</a></li>
+                <li><a href="campaigns-list.html">Campaigns</a></li>
+                <li><a href="saved-lists.html">Saved Lists</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="wallet.html">Wallet</a></li>
+                <li><a href="messages.html">Messages</a></li>
+            </ul>
+            <h3>Campaigns</h3>
+            <ul>
+                <li><a href="create-campaign.html">Create Campaign</a></li>
+                <li><a href="campaign-details.html">Campaign Details</a></li>
+                <li><a href="campaign-review.html">Review & Publish</a></li>
+                <li><a href="ai-matchmaking.html">AI Matchmaking</a></li>
+                <li><a href="campaign-brand-info.html" class="active">Brand Info</a></li>
+            </ul>
+            <h3>Settings</h3>
+            <ul>
+                <li><a href="brand-profile.html">Brand Profile</a></li>
+                <li><a href="team-members.html">Team Members</a></li>
+                <li><a href="notifications.html">Notifications</a></li>
+                <li><a href="billing-subscription.html">Billing & Subscription</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="page-header">
+                <h1>Brand Information</h1>
+                <p>Brand details and guidelines for campaign creators</p>
+            </div>
+
+            <!-- Brand Hero Section -->
+            <div class="brand-hero">
+                <div class="brand-logo">[LOGO]</div>
+                <div class="brand-header-info">
+                    <h2>[Brand Name]</h2>
+                    <p class="tagline">[Brand tagline or slogan goes here]</p>
+                    <div class="brand-tags">
+                        <span class="brand-tag primary">Fashion</span>
+                        <span class="brand-tag">Lifestyle</span>
+                        <span class="brand-tag">Sustainable</span>
+                        <span class="brand-tag">Premium</span>
+                    </div>
+                    <div class="brand-stats-row">
+                        <div class="brand-stat">
+                            <div class="value">24</div>
+                            <div class="label">Campaigns</div>
+                        </div>
+                        <div class="brand-stat">
+                            <div class="value">156</div>
+                            <div class="label">Collaborations</div>
+                        </div>
+                        <div class="brand-stat">
+                            <div class="value">4.8</div>
+                            <div class="label">Rating</div>
+                        </div>
+                        <div class="brand-stat">
+                            <div class="value">2019</div>
+                            <div class="label">Founded</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div class="section">
+                <h2>About the Brand</h2>
+                <p style="line-height: 1.8; color: #555; margin-bottom: 20px;">
+                    [Brand Name] is a leading fashion and lifestyle brand dedicated to creating sustainable,
+                    high-quality products that inspire confidence and self-expression. Founded in 2019,
+                    we've grown from a small startup to a recognized name in the industry, known for our
+                    commitment to ethical manufacturing and innovative designs.
+                </p>
+                <p style="line-height: 1.8; color: #555;">
+                    Our mission is to make premium fashion accessible while maintaining our commitment to
+                    environmental responsibility. We believe in building authentic relationships with creators
+                    who share our values and vision.
+                </p>
+            </div>
+
+            <!-- Company Details -->
+            <div class="section">
+                <h2>Company Details</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Industry</label>
+                        <div class="value">[Fashion & Apparel]</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Company Size</label>
+                        <div class="value">[50-200 employees]</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Headquarters</label>
+                        <div class="value">[New York, NY, USA]</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Website</label>
+                        <div class="value">[www.brandname.com]</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Target Audience</label>
+                        <div class="value">[18-35 year olds, fashion-forward]</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Price Range</label>
+                        <div class="value">[Mid to Premium]</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="section">
+                <h2>Social Media Presence</h2>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <span class="platform">Instagram</span>
+                        <span class="handle">[@brandname] - 1.2M followers</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <span class="platform">TikTok</span>
+                        <span class="handle">[@brandname] - 850K followers</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <span class="platform">YouTube</span>
+                        <span class="handle">[Brand Name] - 320K subscribers</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <span class="platform">Twitter</span>
+                        <span class="handle">[@brandname] - 450K followers</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Brand Guidelines -->
+            <div class="section">
+                <h2>Brand Guidelines for Creators</h2>
+                <ul class="guidelines-list">
+                    <li>
+                        <span class="icon">✓</span>
+                        <div>
+                            <strong>Do:</strong> Use authentic, lifestyle-focused imagery that showcases products in real-world settings
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">✓</span>
+                        <div>
+                            <strong>Do:</strong> Highlight sustainability and quality in your messaging
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">✓</span>
+                        <div>
+                            <strong>Do:</strong> Tag @brandname and use campaign-specific hashtags provided
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">✓</span>
+                        <div>
+                            <strong>Do:</strong> Include clear disclosure of sponsored content per FTC guidelines
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon warning">!</span>
+                        <div>
+                            <strong>Don't:</strong> Alter the brand logo or use unofficial brand colors
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon warning">!</span>
+                        <div>
+                            <strong>Don't:</strong> Make claims about products that aren't approved by the brand
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon warning">!</span>
+                        <div>
+                            <strong>Don't:</strong> Associate the brand with controversial topics or competitors
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Brand Colors -->
+            <div class="section">
+                <h2>Brand Colors</h2>
+                <div class="color-palette">
+                    <div class="color-swatch">
+                        <div class="swatch" style="background: #1a1a2e;"></div>
+                        <div class="name">Primary</div>
+                        <div class="hex">#1A1A2E</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="swatch" style="background: #e94560;"></div>
+                        <div class="name">Accent</div>
+                        <div class="hex">#E94560</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="swatch" style="background: #0f3460;"></div>
+                        <div class="name">Secondary</div>
+                        <div class="hex">#0F3460</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="swatch" style="background: #f5f5f5;"></div>
+                        <div class="name">Background</div>
+                        <div class="hex">#F5F5F5</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="swatch" style="background: #16213e;"></div>
+                        <div class="name">Dark</div>
+                        <div class="hex">#16213E</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Assets -->
+            <div class="section">
+                <h2>Brand Assets</h2>
+                <p style="color: #666; margin-bottom: 20px;">Download approved brand assets for your campaign content</p>
+                <div class="assets-grid">
+                    <div class="asset-item">
+                        <div class="preview">[Logo PNG]</div>
+                        <div class="name">Primary Logo</div>
+                        <a href="#" class="download">Download</a>
+                    </div>
+                    <div class="asset-item">
+                        <div class="preview">[Logo White]</div>
+                        <div class="name">Logo (White)</div>
+                        <a href="#" class="download">Download</a>
+                    </div>
+                    <div class="asset-item">
+                        <div class="preview">[Brand Fonts]</div>
+                        <div class="name">Brand Fonts</div>
+                        <a href="#" class="download">Download</a>
+                    </div>
+                    <div class="asset-item">
+                        <div class="preview">[Product Images]</div>
+                        <div class="name">Product Photos</div>
+                        <a href="#" class="download">Download</a>
+                    </div>
+                    <div class="asset-item">
+                        <div class="preview">[Style Guide]</div>
+                        <div class="name">Style Guide PDF</div>
+                        <a href="#" class="download">Download</a>
+                    </div>
+                    <div class="asset-item">
+                        <div class="preview">[Templates]</div>
+                        <div class="name">Content Templates</div>
+                        <a href="#" class="download">Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="section">
+                <h2>Brand Contact</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Campaign Manager</label>
+                        <div class="value">[Contact Name]</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Email</label>
+                        <div class="value">[campaigns@brandname.com]</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Response Time</label>
+                        <div class="value">[Within 24-48 hours]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <button class="btn">Download All Assets</button>
+                <button class="btn btn-outline">Contact Brand</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
