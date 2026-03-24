@@ -1,6 +1,6 @@
 # Dashboard Wireframes
 
-Simple HTML wireframe mockups for Agency, Brand, and Creator dashboards.
+A simple HTML wireframe mockups for Agency, Brand, and Creator dashboards.
 
 ## 🎨 Live Demo
 
